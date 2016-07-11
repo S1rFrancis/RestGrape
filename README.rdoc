@@ -1,28 +1,23 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Tasks to complete:
 
-Things you may want to cover:
+Remember to take your time and correctly encapsulate your code, and make it as DRY as possible for potential future use.
 
-* Ruby version
+* Build an endpoint for creating a new company, and validate that the companies name is unique.
 
-* System dependencies
+* Add logic that rejects requests with the appropriate HTTP status if they dont include an HTTP Header "App-Id" with the value "12345".
 
-* Configuration
+* Create a rake task for creating the companies in the csv "bb_test/lib/data/company.rb". Remember to keep in mind, that you may want to use this code in another interface at a later date.
 
-* Database creation
+* Create a model "service", that has the fields "name", "price" and "duration" that has a many to one relationship with companies, must belong to a company. Also, if the company is deleted, then the services should also be deleted.
 
-* Database initialization
+* Create an association "parent" on the company model, where a company can optionally have a parent company.
 
-* How to run the test suite
+* Create a rake task for creating the services in the csv "bb_test/lib/data/service_data.rb". Remember to keep in mind, that you may want to use this code in another interface at a later date.
 
-* Services (job queues, cache servers, search engines, etc.)
+* Can you see any issues with code in V1::APICompany, and if so, how would you correctly handle the issue using correct HTTP API principles.
 
-* Deployment instructions
+* Change the endpoint http://localhost:3000/api/v1/1 to return all the properties of company.
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Write a test to ensure you API rejects requests that don't include the correct value in the HTTP Header "App-Id" and check the HTTP status code returned.
