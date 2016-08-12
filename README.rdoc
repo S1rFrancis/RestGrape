@@ -4,20 +4,31 @@ Tasks to complete:
 
 Remember to take your time and correctly encapsulate your code, and make it as DRY as possible for potential future use.
 
-* Build an endpoint for creating a new company, and validate that the companies name is unique.
 
-* Add logic that rejects requests with the appropriate HTTP status if they dont include an HTTP Header "App-Id" with the value "12345".
-
-* Create a rake task for creating the companies in the csv "bb_test/lib/data/company.rb". Remember to keep in mind, that you may want to use this code in another interface at a later date.
-
-* Create a model "service", that has the fields "name", "price" and "duration" that has a many to one relationship with companies, must belong to a company. Also, if the company is deleted, then the services should also be deleted.
+* Create a rake task for importing the companies from the csv `bb_test/lib/data/company_data.csv`.
 
 * Create an association "parent" on the company model, where a company can optionally have a parent company.
 
-* Create a rake task for creating the services in the csv "bb_test/lib/data/service_data.rb". Remember to keep in mind, that you may want to use this code in another interface at a later date.
+* Create a model `service`, that has the fields "name", "price" and "duration" that has a many to one relationship with companies, must belong to a company. Also, if the company is deleted, then the services should also be deleted.
+
+* Create a rake task for importing the services from the csv `bb_test/lib/data/service_data.csv`
+
+* Build an endpoint for creating a new company, and validate that the companies name is unique.
+
+* Build an endpoint to get the services for a company, if the company has a parent it should return the services of the parent.
+
+* Add logic that rejects requests with the appropriate HTTP status if they dont include an HTTP Header "App-Id" with the value "12345".
 
 * Can you see any issues with code in V1::APICompany, and if so, how would you correctly handle the issue using correct HTTP API principles.
 
-* Change the endpoint http://localhost:3000/api/v1/1 to return all the properties of company.
+* Change the endpoint `http://localhost:3000/api/v1/1` to return all the properties of company.
 
 * Write a test to ensure you API rejects requests that don't include the correct value in the HTTP Header "App-Id" and check the HTTP status code returned.
+
+* A description of your approach to this problem, including any significant design decisions and your reasoning in making your choices. (This is the most important deliverable)
+
+* If needed please provide information on all the steps needed to run the project.
+
+Optional:
+
+* Create a very simple SPA in AngularJS that consumes the api endpoint: It will show the list of the companies and selecting the company should show the services available
