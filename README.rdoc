@@ -5,10 +5,9 @@ Tasks to complete
 Amend and complete our restful API
 
 A Company:
-  - has a unique name
-  - can have different branches with different information: address, location
+  - can have multiple regions: US, EU and each region multiple branches, i.e. London, Berlin. Define a hierarchy to represent this logic.
   - has many Services. If there are more branches, they will all share the same services
-  - can be deleted
+  - can be deleted(if its a region, the change will affect all the associated companies)
 
 A Service:
   - has a duration
