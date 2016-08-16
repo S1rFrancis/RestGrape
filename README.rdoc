@@ -36,3 +36,5 @@ Parsing Rules:
 * if one service for a company is deleted then the services will be saved in the db but not searchable
 
 Remember to take your time and correctly encapsulate your code, and make it as DRY as possible for potential future use.
+
+PLEASE DO NOT PUBLISH YOUR SOLUTION ON GITHUB. 
