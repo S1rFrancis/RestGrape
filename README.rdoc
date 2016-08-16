@@ -1,34 +1,38 @@
 == README
 
-Tasks to complete:
+Tasks to complete
 
-Remember to take your time and correctly encapsulate your code, and make it as DRY as possible for potential future use.
+Amend and complete our restful API
+
+A Company:
+  - can have multiple regions: US, EU and each region multiple branches, i.e. London, Berlin. Define a hierarchy to represent this logic.
+  - has many Services. If there are more branches, they will all share the same services
+  - can be deleted(if its a region, the change will affect all the associated companies)
+
+A Service:
+  - has a duration
+  - has a price
+  - can be deleted
 
 
-* Create a rake task for importing the companies from the csv `bb_test/lib/data/company_data.csv`.
+Deliverables:
 
-* Create an association "parent" on the company model, where a company can optionally have a parent company.
+* Create a command-line script to import the data from the csv provided in the folder bb_test/lib/data/ (check the parsing rules)
 
-* Create a model `service`, that has the fields "name", "price" and "duration" that has a many to one relationship with companies, must belong to a company. Also, if the company is deleted, then the services should also be deleted.
+* Build all the endpoints needed for the following point
 
-* Create a rake task for importing the services from the csv `bb_test/lib/data/service_data.csv`
+* Make sure to add tests for all of different scenarios
 
-* Build an endpoint for creating a new company, and validate that the companies name is unique.
-
-* Build an endpoint to get the services for a company, if the company has a parent it should return the services of the parent.
-
-* Add logic that rejects requests with the appropriate HTTP status if they dont include an HTTP Header "App-Id" with the value "12345".
-
-* Can you see any issues with code in V1::APICompany, and if so, how would you correctly handle the issue using correct HTTP API principles.
-
-* Change the endpoint `http://localhost:3000/api/v1/1` to return all the properties of company.
-
-* Write a test to ensure you API rejects requests that don't include the correct value in the HTTP Header "App-Id" and check the HTTP status code returned.
+* Create a very simple SPA in AngularJS that consumes the api endpoints: It will show the list of the companies and selecting the company(and the branch) should show the services available with all the information
 
 * A description of your approach to this problem, including any significant design decisions and your reasoning in making your choices. (This is the most important deliverable)
 
 * If needed please provide information on all the steps needed to run the project.
 
-Optional:
+Parsing Rules:
 
-* Create a very simple SPA in AngularJS that consumes the api endpoint: It will show the list of the companies and selecting the company should show the services available
+* The csv contains duplicates, we don't need them in the db
+* if all the services for a company are deleted then the company is deleted(should be still stored in the DB)
+* if one service for a company is deleted then the services will be saved in the db but not searchable
+
+Remember to take your time and correctly encapsulate your code, and make it as DRY as possible for potential future use.
