@@ -7,12 +7,12 @@ Amend and complete our restful API
 A Company:
   - can have multiple regions: US, EU and each region multiple branches, i.e. London, Berlin. Define a hierarchy to represent this logic.
   - has many Services. If there are more branches, they will all share the same services
-  - can be deleted
+  - can be disabled
 
 A Service:
   - has a duration
   - has a price
-  - can be deleted
+  - can be disabled
 
 
 Deliverables:
