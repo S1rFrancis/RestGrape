@@ -1,4 +1,4 @@
-company,location,region,service,price,duration,deleted
+company,location,region,service,price,duration,disabled
 Google,Berlin,EU,Design with HTML/CSS,120,30,false
 Google,San Francisco,US,Design with HTML/CSS,120,30,false
 Google,San Francisco,US,Restful API design,1500,120,false
