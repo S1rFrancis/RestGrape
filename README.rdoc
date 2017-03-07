@@ -13,28 +13,30 @@ A Service:
   - has a duration
   - has a price
   - can be disabled
-
+  - if the company is disabled, all services are disabled.
 
 Deliverables:
 
 * Create a command-line script to import the data from the csv provided in the folder bb_test/lib/data/ (check the parsing rules)
 
-* Build all the endpoints needed for the following point
+* Build the following endpoints:
+  CRUD services
+  Read companies
+  
+* If a user makes a request to your API endpoint, they must pass in the header 'API-Token' with the value 'secret123'.
 
 * Make sure to add tests for all of different scenarios
 
-* Create a very simple SPA in AngularJS that consumes the api endpoints: It will show the list of the companies and selecting the company(and the branch) should show the services available with all the information
-
-* A description of your approach to this problem, including any significant design decisions and your reasoning in making your choices. (This is the most important deliverable)
+* Be prepared to talk through your approach and any significant design decisions that you made whilst completing this challenge.
 
 * If needed please provide information on all the steps needed to run the project.
 
 Parsing Rules:
 
-* The csv contains duplicates, we don't need them in the db
-* if all the services for a company are deleted then the company is deleted(should be still stored in the DB)
-* if one service for a company is deleted then the services will be saved in the db but not searchable
+* If the csv contains duplicates, we don't want them in the db.
+
+* Please deploy this application someone where we are able to test these endpoints.
 
 Remember to take your time and correctly encapsulate your code, and make it as DRY as possible for potential future use.
 
-PLEASE DO NOT PUBLISH YOUR SOLUTION ON GITHUB. 
+PLEASE DO NOT PUBLISH YOUR SOLUTION ON GITHUB.
