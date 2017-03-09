@@ -1,5 +1,11 @@
-require 'csv'
+namespace :prepare do
+  task :csv_data => :environment do
+    importer = ImportCsvData.new
+    importer.run
+  end
+end
 
+require 'csv'
 class ImportCsvData
 
   attr_accessor :company, :company_name, :company_description, :serv, :price, :duration, :disabled
@@ -42,5 +48,3 @@ class ImportCsvData
   end
 
 end
-importer = ImportCsvData.new
-importer.run
