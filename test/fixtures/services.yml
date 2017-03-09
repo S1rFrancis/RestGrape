@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service: MyString
+  price: 1.5
+  duration: 
+  disabled: false
+
+two:
+  service: MyString
+  price: 1.5
+  duration: 
+  disabled: false

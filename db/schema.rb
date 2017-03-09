@@ -20,4 +20,22 @@ ActiveRecord::Schema.define(version: 20160711211414) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "companies_services", force: :cascade do |t|
+    t.integer "company_id"
+    t.integer "service_id"
+  end
+
+  add_index "companies_services", ["company_id"], name: "index_companies_services_on_company_id"
+  add_index "companies_services", ["service_id"], name: "index_companies_services_on_service_id"
+
+  create_table "services", force: :cascade do |t|
+    t.string   "service"
+    t.float    "price"
+    t.integer  "duration"
+    t.boolean  "disabled"
+    t.integer  "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end

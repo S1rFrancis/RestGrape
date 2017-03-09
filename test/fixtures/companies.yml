@@ -4,8 +4,18 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+google_berlin:
+  id: 1
+  name: "Google"
+  description: "Berlin - EU"
+
+
+apple_london:
+  id: 3
+  name: "Apple"
+  description: "London - EU"
+
+ibm_berlin:
+  id: 6
+  name: "IBM"
+  description: "Berlin - EU"

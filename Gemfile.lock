@@ -103,6 +103,7 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    pg (0.18.1)
     pkg-config (1.1.7)
     rack (1.6.4)
     rack-accept (0.4.5)
@@ -128,6 +129,11 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (4.2.4)
       actionpack (= 4.2.4)
       activesupport (= 4.2.4)
@@ -189,7 +195,9 @@ DEPENDENCIES
   grape
   jbuilder (~> 2.0)
   jquery-rails
+  pg (= 0.18.1)
   rails (= 4.2.4)
+  rails_12factor
   representable
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
@@ -200,4 +208,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.6
+   1.14.3
