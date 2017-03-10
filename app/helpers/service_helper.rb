@@ -4,7 +4,12 @@ module ServiceHelper
     record = company
 
     if company.presence
-      record = Service.where({ service: serv, price: price, duration: duration, disabled: disabled, company_id: company.id})
+      record = Service.where({ service: serv,
+                               price: price,
+                               duration: duration,
+                               disabled: disabled,
+                               company_id: company.id
+                               })
     end
     (record.blank? && !record.nil?) ? true : false
   end

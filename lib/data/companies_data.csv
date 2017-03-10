@@ -129,7 +129,7 @@ Google,Berlin,EU,Restful API design,1500,120,false
 IBM,London,EU,Design with HTML/CSS,120,30,true
 Apple,Berlin,EU,Advanced AngularJS,1200,180,false
 IBM,Berlin,EU,Restful API design,1500,120,true
-Œoogle,San Francisco,US,Restful API design,1500,120,false
+Google,San Francisco,US,Restful API design,1500,120,false
 Apple,New York,US,Restful API design,1500,120,false
 Google,Berlin,EU,Design with HTML/CSS,120,30,false
 Apple,San Francisco,US,Restful API design,1500,120,false
@@ -187,7 +187,7 @@ Apple,Berlin,EU,Advanced AngularJS,1200,180,false
 IBM,San Francisco,US,Introduction to Ruby,500,120,true
 IBM,London,EU,Design with HTML/CSS,120,30,true
 IBM,New York,US,Restful API design,1500,120,true
-Google<script>alert('hi')<script>,Berlin,EU,Practical TDD,300,60,false
+Google,Berlin,EU,Practical TDD,300,60,false
 Apple,New York,US,Restful API design,1500,120,false
 IBM,Berlin,EU,Restful API design,1500,120,true
 IBM,Berlin,EU,Practical TDD,300,60,true

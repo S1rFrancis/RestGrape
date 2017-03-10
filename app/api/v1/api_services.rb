@@ -38,6 +38,7 @@ class V1::APIServices < Grape::API
   post "/updateService" do
     id = request["id"]
     if V1::APIServices.authorised?(request)
+      company_service = Service.find_by_id(id)
       if company_service.present?
         serv = request["serv"]
         price = request["price"]
@@ -59,7 +60,6 @@ class V1::APIServices < Grape::API
   end
 
     post "/deleteService" do
-      #authoriser = Authoriser.new
       if V1::APIServices.authorised?(request)
         id = request["id"]
         company_service = Service.find_by_id(id)

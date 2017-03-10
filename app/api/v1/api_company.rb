@@ -13,7 +13,7 @@ class V1::APICompany < Grape::API
   end
 
   post "/newCompany" do
-    if V1::APICompany..authorised?(request)
+    if V1::APICompany.authorised?(request)
       name = request["name"]
       description = request["description"]
       company = Company.where({ name: name, description: description })
@@ -38,7 +38,7 @@ class V1::APICompany < Grape::API
   end
 
   post "/updateCompany" do
-    if V1::APICompany..authorised?(request)
+    if V1::APICompany.authorised?(request)
       id = request["id"]
       company = Company.find_by_id(id)
 
@@ -57,7 +57,7 @@ class V1::APICompany < Grape::API
   end
 
     post "/deleteCompany" do
-      if V1::APICompany..authorised?(request)
+      if V1::APICompany.authorised?(request)
         id = request["id"]
         company = Company.find_by_id(id)
 

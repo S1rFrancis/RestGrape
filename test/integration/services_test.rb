@@ -62,7 +62,7 @@ class ServicesTest < ActionDispatch::IntegrationTest
              "disabled": false
            }
     result = post(url, data)
-
+    
     assert result.class == Net::HTTPCreated
   end
 
