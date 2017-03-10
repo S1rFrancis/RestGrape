@@ -1,4 +1,6 @@
 class V1::APIServices < Grape::API
+  extend Authoriser
+  extend ServiceHelper
 
   format :json
 
@@ -11,16 +13,13 @@ class V1::APIServices < Grape::API
   end
 
   post "/newService" do
-    authoriser = Authoriser.new
-    service_helper = ServiceHelper.new
-
     company_id = request["company_id"]
     serv = request["serv"]
     price = request["price"]
     duration = request["duration"]
     disabled = request["disabled"]
 
-    if authoriser.authorised?(request) && service_helper.uniqueCompanyService?(company_id, serv, price, duration, disabled)
+    if V1::APIServices.authorised?(request) && V1::APIServices.uniqueCompanyService?(company_id, serv, price, duration, disabled)
       service_record = Service.create(service: serv, price: price, duration: duration, disabled: disabled, company_id: company_id)
       service_record.save
     else
@@ -37,21 +36,22 @@ class V1::APIServices < Grape::API
   end
 
   post "/updateService" do
-    authoriser = Authoriser.new
-    service_helper = ServiceHelper.new
     id = request["id"]
+    if V1::APIServices.authorised?(request)
+      if company_service.present?
+        serv = request["serv"]
+        price = request["price"]
+        duration = request["duration"]
+        disabled = request["disabled"]
 
-    company_service = Service.find_by_id(id)
-    if company_service.present?
-      serv = request["serv"]
-      price = request["price"]
-      duration = request["duration"]
-      disabled = request["disabled"]
-
-      company_service.update({ service: serv, price: price, duration: duration, disabled: disabled })
+        company_service.update({ service: serv, price: price, duration: duration, disabled: disabled })
+      else
+        { "response": "inavlid update attempted" }
+      end
     else
-      { "response": "inavlid update attempted" }
+      { "response": "you are not authorised" }
     end
+    company_service = Service.find_by_id(id)
   end
 
   params do
@@ -59,8 +59,8 @@ class V1::APIServices < Grape::API
   end
 
     post "/deleteService" do
-      authoriser = Authoriser.new
-      if authoriser.authorised?(request)
+      #authoriser = Authoriser.new
+      if V1::APIServices.authorised?(request)
         id = request["id"]
         company_service = Service.find_by_id(id)
 
@@ -77,7 +77,6 @@ class V1::APIServices < Grape::API
   end
 
   get ":id" do
-    authoriser = Authoriser.new
-    authoriser.authorised?(request) ? Service.where({ id: params[:id], disabled: false}) : { "response": "you are not authorised to do this mate" }
+    V1::APIServices.authorised?(request) ? Service.where({ id: params[:id], disabled: false}) : { "response": "you are not authorised to do this mate" }
   end
 end

@@ -1,5 +1,5 @@
 class V1::APICompany < Grape::API
-
+  extend Authoriser
   # rescue_from ActiveRecord::RecordNotFound do |e|
   #   error!("Unauthorized", 403)
   # end
@@ -13,8 +13,7 @@ class V1::APICompany < Grape::API
   end
 
   post "/newCompany" do
-    authoriser = Authoriser.new
-    if authoriser.authorised?(request)
+    if V1::APICompany..authorised?(request)
       name = request["name"]
       description = request["description"]
       company = Company.where({ name: name, description: description })
@@ -39,8 +38,7 @@ class V1::APICompany < Grape::API
   end
 
   post "/updateCompany" do
-    authoriser = Authoriser.new
-    if authoriser.authorised?(request)
+    if V1::APICompany..authorised?(request)
       id = request["id"]
       company = Company.find_by_id(id)
 
@@ -59,8 +57,7 @@ class V1::APICompany < Grape::API
   end
 
     post "/deleteCompany" do
-      authoriser = Authoriser.new
-      if authoriser.authorised?(request)
+      if V1::APICompany..authorised?(request)
         id = request["id"]
         company = Company.find_by_id(id)
 
@@ -73,8 +70,7 @@ class V1::APICompany < Grape::API
     end
 
   get ":id" do
-    authoriser = Authoriser.new
-    authoriser.authorised?(request) ? CompanyRepresenter.new(Company.find_by_id(params[:id])) : { "response": "you are not authorised to do this mate"}
+    V1::APICompany.authorised?(request) ? CompanyRepresenter.new(Company.find_by_id(params[:id])) : { "response": "you are not authorised to do this mate"}
   end
 
 end
