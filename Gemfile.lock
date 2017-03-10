@@ -195,7 +195,7 @@ DEPENDENCIES
   grape
   jbuilder (~> 2.0)
   jquery-rails
-  pg (= 0.18.1)
+  pg
   rails (= 4.2.4)
   rails_12factor
   representable
