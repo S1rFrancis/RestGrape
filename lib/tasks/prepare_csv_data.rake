@@ -37,14 +37,13 @@ class ImportCsvData
   end
 
   def uniqueCompany?
-    record = Company.where({ name: @company_name, description: @company_description})
+    record = Company.where({ name: @company_name, description: @company_description })
     record.blank? ? true : false
   end
 
   def uniqueCompanyService?
-    company =  Company.where({ name: @company_name, description: @company_description}).first
-    record = Service.where({ service: @serv, price: @price, duration: @duration, disabled: @disabled, company_id: company.id})
+    company =  Company.where({ name: @company_name, description: @company_description }).first
+    record = Service.where({ service: @serv, price: @price, duration: @duration, disabled: @disabled, company_id: company.id })
     record.blank? ? true : false
   end
-
 end

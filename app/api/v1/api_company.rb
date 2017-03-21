@@ -56,18 +56,18 @@ class V1::APICompany < Grape::API
     requires :id, type: Integer, desc: 'Company id.'
   end
 
-    post "/deleteCompany" do
-      if V1::APICompany.authorised?(request)
-        id = request["id"]
-        company = Company.find_by_id(id)
+  post "/deleteCompany" do
+    if V1::APICompany.authorised?(request)
+      id = request["id"]
+      company = Company.find_by_id(id)
 
-        if company.present?
-          company.destroy
-        else
-          { "response": "invalid deletion attempted" }
-        end
+      if company.present?
+        company.destroy
+      else
+        { "response": "invalid deletion attempted" }
       end
     end
+  end
 
   get ":id" do
     V1::APICompany.authorised?(request) ? CompanyRepresenter.new(Company.find_by_id(params[:id])) : { "response": "you are not authorised to do this mate"}

@@ -59,18 +59,18 @@ class V1::APIServices < Grape::API
     requires :id, type: Integer, desc: 'Service id'
   end
 
-    post "/deleteService" do
-      if V1::APIServices.authorised?(request)
-        id = request["id"]
-        company_service = Service.find_by_id(id)
+  post "/deleteService" do
+    if V1::APIServices.authorised?(request)
+      id = request["id"]
+      company_service = Service.find_by_id(id)
 
-        if company_service.present?
-          company_service.destroy
-        else
-          { "response": "invalid delete operation" }
-        end
+      if company_service.present?
+        company_service.destroy
+      else
+        { "response": "invalid delete operation" }
       end
     end
+  end
 
   params do
     requires :id, type: Integer, desc: 'Company id.'
